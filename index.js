@@ -99,12 +99,12 @@ function handleMessage(sender_psid, received_message) {
 
   let response;
 
-  if(received_message.quick_reply.payload != "") {
-    console.log("business has beeeen clickedddd");
+  // if(received_message.quick_reply.payload != "") {
+  //   console.log("business has beeeen clickedddd");
 
-    getNewsByTopics(sender_psid,received_message.quick_reply.payload);
+  //   getNewsByTopics(sender_psid,received_message.quick_reply.payload);
   
-  }else {
+  // }else {
 
       response = {
         "text": "Hanap ka ng byahe boss?",
@@ -125,7 +125,7 @@ function handleMessage(sender_psid, received_message) {
   // Sends the response message
   callSendAPI(sender_psid, response); 
   
-  }
+  // }
 
 
 }
