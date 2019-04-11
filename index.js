@@ -108,7 +108,6 @@ function handleMessage(sender_psid, received_message) {
 
       response = {
         "text": "Hanap ka ng byahe boss?",
-        "composer_input_disabled": true,
         "quick_replies": [
           {
             "content_type":"text",
@@ -163,7 +162,6 @@ function sendGetStarted(recipientId) {
 
       response = {
         "text": "Hanap ka ng byahe boss?",
-        "composer_input_disabled": true,
         "quick_replies": [
           {
             "content_type":"text",
