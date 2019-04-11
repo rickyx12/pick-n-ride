@@ -311,7 +311,7 @@ function callSendAPI(sender_psid, response) {
   }
 
   const qs = 'access_token='+encodeURIComponent(accessToken);
-  return fetch('https://graph.facebook.com/v2.6/me/messages'+qs,{
+  return fetch('https://graph.facebook.com/v2.6/me/messages?'+qs,{
     method:'POST',
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify(request_body)
