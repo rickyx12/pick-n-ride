@@ -160,21 +160,26 @@ function sendGetStarted(recipientId) {
 
     let response;
 
-      response = {
-        "text": "Hanap ka ng byahe boss?",
-        "quick_replies": [
-          {
-            "content_type":"text",
-            "title":"Oo",
-            "payload":"YES"
-          },
-          {
-            "content_type":"text",
-            "title":"Hindi",
-            "payload":"NO"
-          }
-        ]
-      }
+      response = [
+        {
+          "text": "Hello how are you?"
+        },
+        {
+          "text": "Hanap ka ng byahe boss?",
+          "quick_replies": [
+            {
+              "content_type":"text",
+              "title":"Oo",
+              "payload":"YES"
+            },
+            {
+              "content_type":"text",
+              "title":"Hindi",
+              "payload":"NO"
+            }
+          ]
+        }
+      ]
 
   callSendAPI(recipientId,response);
 }
