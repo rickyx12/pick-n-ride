@@ -310,7 +310,7 @@ function callSendAPI(sender_psid, response) {
     "message": response
   }
 
-  const qs = 'access_token'+encodeURIComponent(FB_PAGE_TOKEN);
+  const qs = 'access_token'+encodeURIComponent(accessToken);
   return fetch('https://graph.facebook.com/v2.6/me/messages'+qs,{
     method:'POST',
     headers: {'Content-Type': 'application/json'},
