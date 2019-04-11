@@ -6,7 +6,7 @@ const
   bodyParser = require('body-parser'),
   request = require('request'),
   dataUrl = "https://mindanaodailymirror.ph/index.php",
-  accessToken = "EAAKgrgGvNdgBANxR52f7xTePGpZCAWTJzKB7uRYwGuOVDfRH10GZAyNL4RK3XBusoqGeKdY4gsr1QEKgNRfIqNnb9NdN0ZApoK2LdvFonVVG4Kx04wCf3A37EoJRb5TVcIbXAYf2RC5BcCzOvZBNSvunw3GDWiZByPT3cIbOwrgZDZD",
+  accessToken = "EAADuLIY8BksBALxFZA9SuJ5vshC6UB1mBmbwnjie1fkf4sXXeVfmiUZAuJoZAbM5NYmyo6PMByeuUibI7vK5TAib5uGC2hzj4BfbXZAFEUlwNSZA5TcbzcnNCWTkVEqkuZAx26MkirY85dext2casBL0s4x5R9Mj9ttxpsQe1IxwZDZD",
   app = express().use(bodyParser.json()); // creates express http server
 
 
