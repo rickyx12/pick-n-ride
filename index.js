@@ -158,13 +158,9 @@ function handlePostback(sender_psid, received_postback) {
 
 function sendGetStarted(recipientId) {
 
-    let response1,response2;
+    let response;
 
-      response1 = {
-        "text":"Kamusta"
-      }
-
-      response2 = {
+      response = {
         "text": "Hanap ka ng byahe boss?",
         "quick_replies": [
           {
@@ -180,8 +176,7 @@ function sendGetStarted(recipientId) {
         ]
       }
 
-  callSendAPI2(recipientId,response1,response2);
-  // callSendAPI(recipientId,response);
+  callSendAPI(recipientId,response);
 }
 
 
@@ -284,43 +279,6 @@ function callSendAPI(sender_psid, response) {
     },
     "message": response
   }
-
-  // Send the HTTP request to the Messenger Platform
-  request({
-    "uri": "https://graph.facebook.com/v2.6/me/messages",
-    "qs": { "access_token": accessToken },
-    "method": "POST",
-    "json": request_body
-  }, (err, res, body) => {
-    if (!err) {
-      console.log('message sent!')
-    } else {
-      console.error("Unable to send message:" + err);
-    }
-  }); 
-
-
-}
-
-
-// Sends response messages via the Send API
-function callSendAPI2(sender_psid, response1,response2) {
-  
-  typing(sender_psid);
-
-  // Construct the message body
-  let request_body = [{
-    "recipient": {
-      "id": sender_psid
-    },
-    "message": response1
-  },
-  {
-    "recipient": {
-      "id": sender_psid
-    },
-    "message": response2
-  }]
 
   // Send the HTTP request to the Messenger Platform
   request({
