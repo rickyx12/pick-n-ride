@@ -139,7 +139,7 @@ function handlePostback(sender_psid, received_postback) {
 
   if(payload == 'GET_STARTED_PAYLOAD') {
     
-    customerGreetings(sender_psid);
+    sendGetStarted(sender_psid);
   
   }else if(payload == 'TOP_STORIES') {
    
@@ -155,32 +155,6 @@ function handlePostback(sender_psid, received_postback) {
 
 }
 
-
-function customerGreetings(recipientId) {
-
-  let request_body = {
-    "recipient": {
-      "id": recipientId
-    },
-    "message": "Hello How are you?"
-  }
-
-  request({
-    "uri": "https://graph.facebook.com/v2.6/me/messages",
-    "qs": { "access_token": accessToken },
-    "method": "POST",
-    "json": request_body
-  }, (err, res, body) => {
-    if (!err) {
-        console.log("message sent!!");
-    } else {
-      console.error("Unable to send message:" + err);
-    }
-  }); 
-
-  sendGetStarted(recipientId);
-
-}
 
 function sendGetStarted(recipientId) {
 
