@@ -159,9 +159,13 @@ function handlePostback(sender_psid, received_postback) {
 
 function sendGetStarted(recipientId) {
 
-    let response;
+    let response1,response2;
 
-      response = {
+      response1 = {
+        "text":"Kamusta"
+      }
+
+      response2 = {
         "text": "Hanap ka ng byahe boss?",
         "quick_replies": [
           {
@@ -177,7 +181,9 @@ function sendGetStarted(recipientId) {
         ]
       }
 
-  callSendAPI(recipientId,response);
+  callSendAPI(recipientId,response1).then(() => {
+    return callSendAPI(recipientId,response2)
+  });
 }
 
 
