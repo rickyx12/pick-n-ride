@@ -162,10 +162,14 @@ function sendGetStarted(recipientId) {
     let response1,response2;
 
       response1 = {
-        "text":"Kamusta"
+        "text":"Boss kamusta? :D"
       }
 
       response2 = {
+        "text":"We are Pick-N-Ride a transportation service for you. =) "
+      }
+
+      response3 = {
         "text": "Hanap ka ng byahe boss?",
         "quick_replies": [
           {
@@ -182,7 +186,9 @@ function sendGetStarted(recipientId) {
       }
 
   callSendAPI(recipientId,response1).then(() => {
-    return callSendAPI(recipientId,response2)
+    return callSendAPI(recipientId,response2).then(() => {
+      return callSendAPI(recipientId,response3)
+    });
   });
 }
 
