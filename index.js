@@ -172,7 +172,8 @@ function customerGreetings(recipientId) {
     "json": request_body
   }, (err, res, body) => {
     if (!err) {
-      
+        
+        console.log("testing ride");
         sendGetStarted(recipientId);
 
     } else {
