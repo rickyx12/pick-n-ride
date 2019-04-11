@@ -139,7 +139,7 @@ function handlePostback(sender_psid, received_postback) {
 
   if(payload == 'GET_STARTED_PAYLOAD') {
     
-    sendGetStarted(sender_psid);
+    customerGreetings(sender_psid);
   
   }else if(payload == 'TOP_STORIES') {
    
@@ -156,12 +156,37 @@ function handlePostback(sender_psid, received_postback) {
 }
 
 
+function customerGreetings(recipientId) {
+
+  let request_body = {
+    "recipient": {
+      "id": recipientId
+    },
+    "message": "Hello How are you?"
+  }
+
+  request({
+    "uri": "https://graph.facebook.com/v2.6/me/messages",
+    "qs": { "access_token": accessToken },
+    "method": "POST",
+    "json": request_body
+  }, (err, res, body) => {
+    if (!err) {
+      
+        sendGetStarted(recipientId);
+
+    } else {
+      console.error("Unable to send message:" + err);
+    }
+  }); 
+
+}
+
 function sendGetStarted(recipientId) {
 
     let response;
 
       response = {
-        "text": "Kamusta?",
         "text": "Hanap ka ng byahe boss?",
         "quick_replies": [
           {
