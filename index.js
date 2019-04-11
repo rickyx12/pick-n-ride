@@ -161,35 +161,20 @@ function sendGetStarted(recipientId) {
     let response;
 
       response = {
-      "attachment":{
-        "type":"template",
-        "payload":{
-          "template_type":"generic",
-          "elements":[
-             {
-              "title":"Mindanao Daily Mirror",
-              "image_url":"https://mindanaodailymirror.ph/assets/img/mdm.jpg",
-              "subtitle":"Your Exponent of Truth and Progress since 1950.",
-              "buttons":[
-                {
-                  "type":"postback",
-                  "title":"Top Stories",
-                  "payload":"TOP_STORIES"
-                },{
-                  "type":"postback",
-                  "title":"Topics",
-                  "payload":"TOPICS"
-                },{
-                  "type":"web_url",
-                  "title":"Visit Website",
-                  "url":"https://mindanaodailymirror.ph"
-                }               
-              ]      
-            }
-          ]
-        }
+        "text": "Hanap ka ng byahe boss?",
+        "quick_replies": [
+          {
+            "content_type":"text",
+            "title":"Oo",
+            "payload":"YES"
+          },
+          {
+            "content_type":"text",
+            "title":"Hindi",
+            "payload":"NO"
+          }
+        ]
       }
-    }
 
   callSendAPI(recipientId,response);
 }
