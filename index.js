@@ -5,6 +5,7 @@ const
   express = require('express'),
   bodyParser = require('body-parser'),
   request = require('request'),
+  fetch = require('node-fetch'),
   dataUrl = "https://mindanaodailymirror.ph/index.php",
   accessToken = "EAADuLIY8BksBALxFZA9SuJ5vshC6UB1mBmbwnjie1fkf4sXXeVfmiUZAuJoZAbM5NYmyo6PMByeuUibI7vK5TAib5uGC2hzj4BfbXZAFEUlwNSZA5TcbzcnNCWTkVEqkuZAx26MkirY85dext2casBL0s4x5R9Mj9ttxpsQe1IxwZDZD",
   app = express().use(bodyParser.json()); // creates express http server
@@ -267,7 +268,36 @@ function typing(sender_psid) {
 }
 
 
-// Sends response messages via the Send API
+// // Sends response messages via the Send API
+// function callSendAPI(sender_psid, response) {
+  
+//   typing(sender_psid);
+
+//   // Construct the message body
+//   let request_body = {
+//     "recipient": {
+//       "id": sender_psid
+//     },
+//     "message": response
+//   }
+
+//   // Send the HTTP request to the Messenger Platform
+//   request({
+//     "uri": "https://graph.facebook.com/v2.6/me/messages",
+//     "qs": { "access_token": accessToken },
+//     "method": "POST",
+//     "json": request_body
+//   }, (err, res, body) => {
+//     if (!err) {
+//       console.log('message sent!')
+//     } else {
+//       console.error("Unable to send message:" + err);
+//     }
+//   }); 
+
+// }
+
+
 function callSendAPI(sender_psid, response) {
   
   typing(sender_psid);
@@ -280,19 +310,11 @@ function callSendAPI(sender_psid, response) {
     "message": response
   }
 
-  // Send the HTTP request to the Messenger Platform
-  request({
-    "uri": "https://graph.facebook.com/v2.6/me/messages",
-    "qs": { "access_token": accessToken },
-    "method": "POST",
-    "json": request_body
-  }, (err, res, body) => {
-    if (!err) {
-      console.log('message sent!')
-    } else {
-      console.error("Unable to send message:" + err);
-    }
-  }); 
-
+  const qs = 'access_token'+encodeURIComponent(FB_PAGE_TOKEN);
+  return fetch('https://graph.facebook.com/v2.6/me/messages'+qs,{
+    method:'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify(body)
+  });
 
 }
