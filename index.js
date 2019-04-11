@@ -159,7 +159,7 @@ function handlePostback(sender_psid, received_postback) {
 
 function sendGetStarted(recipientId) {
 
-    let response1,response2;
+    let response1,response2,response3;
 
       response1 = {
         "text":"Boss kamusta? :D"
