@@ -107,7 +107,6 @@ function handleMessage(sender_psid, received_message) {
   }else {
 
       response = {
-      
         "text": "Hanap ka ng byahe boss?",
         "quick_replies": [
           {
@@ -121,7 +120,6 @@ function handleMessage(sender_psid, received_message) {
             "payload":"NO"
           }
         ]
-
       }
 
   // Sends the response message
