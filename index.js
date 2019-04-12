@@ -100,6 +100,7 @@ function handleMessage(sender_psid, received_message) {
 
   let response;
 
+   console.log("--->"+received_message);
 
   // if(received_message.quick_reply.payload != "") {
     
