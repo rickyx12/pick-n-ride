@@ -99,6 +99,8 @@ function handleMessage(sender_psid, received_message) {
 
 
   let response;
+ 
+  console.log("xx--"+received_message);
 
   if(received_message.quick_reply.payload == "PASSENGER_YES") {
     
