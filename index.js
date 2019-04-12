@@ -175,12 +175,12 @@ function sendGetStarted(recipientId) {
           {
             "content_type":"text",
             "title":"Oo",
-            "payload":"YES"
+            "payload":"PASSENGER_YES"
           },
           {
             "content_type":"text",
             "title":"Hindi",
-            "payload":"NO"
+            "payload":"PASSENGER_NO"
           }
         ]
       }
