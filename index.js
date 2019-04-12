@@ -102,15 +102,15 @@ function handleMessage(sender_psid, received_message) {
 
    console.log("--->"+received_message.text);
 
-  if(received_message.quick_reply.length > 0) {
+  // if(received_message.quick_reply.length > 0) {
     
-    if(received_message.quick_reply.payload == "PASSENGER_YES") {
-      getPickUpPoint(sender_psid);
-    }else {
-      console.log('ERROR!!!')
-    }
+  //   if(received_message.quick_reply.payload == "PASSENGER_YES") {
+  //     getPickUpPoint(sender_psid);
+  //   }else {
+  //     console.log('ERROR!!!')
+  //   }
   
-  }else {
+  // }else {
 
       response = {
         "text": "Hanap ka ng byahe boss?",
@@ -131,7 +131,7 @@ function handleMessage(sender_psid, received_message) {
   // Sends the response message
   callSendAPI(sender_psid, response); 
   
-  }
+  // }
 
 
 }
