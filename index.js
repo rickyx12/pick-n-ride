@@ -113,12 +113,12 @@ function handleMessage(sender_psid, received_message) {
           {
             "content_type":"text",
             "title":"Oo",
-            "payload":"YES"
+            "payload":"PASSENGER_YES"
           },
           {
             "content_type":"text",
             "title":"Hindi",
-            "payload":"NO"
+            "payload":"PASSENGER_NO"
           }
         ]
       }
@@ -142,9 +142,9 @@ function handlePostback(sender_psid, received_postback) {
     
     sendGetStarted(sender_psid);
   
-  }else if(payload == 'TOP_STORIES') {
+  }else if(payload == 'PASSENGER_YES') {
    
-    getTopStories(sender_psid);
+    getPickUpPoint(sender_psid);
   
   }else if(payload == 'TOPICS') {
 
@@ -193,12 +193,13 @@ function sendGetStarted(recipientId) {
 }
 
 
-function pressRelease(recipientId) {
+function getPickUpPoint(recipientId) {
 
   let response;
 
-  response = {"attachment":{"type":"template","payload":{"template_type":"generic","image_aspect_ratio":"square","elements":[{"title":"Cagayan De Oro shows support for fellow Mindanaoan Bong Go and PDP-Laban bets","image_url":"http://kuyabonggo.ph/uploads/c389669be29df2e6999433857a003489.jpg","subtitle":"kuyabonggo.ph","buttons":[{"type":"web_url","url":"http://kuyabonggo.ph/press-release/Cagayan-De-Oro-shows-support-for-fellow-Mindanaoan-Bong-Go-and-PDP-Laban-bets","title":"Read"}]},{"title":"Bong Go and PDP bets consolidate strength in South Cotabato, vows to continue development in Mindanao","image_url":"http://kuyabonggo.ph/uploads/2095cd77984044702a1ce6fd08f484af.jpg","subtitle":"kuyabonggo.ph","buttons":[{"type":"web_url","url":"http://kuyabonggo.ph/press-release/Bong-Go-and-PDP-bets-consolidate-strength-in-South-Cotabato-vows-to-continue-development-in-Mindanao","title":"Read"}]},{"title":"Bong Go says President Duterte won\u2019t spare anyone in fight against illegal drugs","image_url":"http://kuyabonggo.ph/uploads/a121f12c27d5099060d16056a8de2ae7.jpg","subtitle":"kuyabonggo.ph","buttons":[{"type":"web_url","url":"http://kuyabonggo.ph/press-release/Bong-Go-says-President-Duterte-wont-spare-anyone-in-fight-against-illegal-drugs","title":"Read"}]},{"title":"Bong Go goes around Caloocan; draws similar warm welcome like Duterte\u2019s 2016 campaign ","image_url":"http://kuyabonggo.ph/uploads/991334eb5db026723c47d3aee069ebaa.jpg","subtitle":"kuyabonggo.ph","buttons":[{"type":"web_url","url":"http://kuyabonggo.ph/press-release/Bong-Go-goes-around-Caloocan-draws-similar-warm-welcome-like-Dutertes-2016-campaign-","title":"Read"}]},{"title":"Bong Go promotes Marikina-made footwear, vows support for local industries","image_url":"http://kuyabonggo.ph/uploads/f1e696a60eaaf0a7d84826a75b0e639a.jpg","subtitle":"kuyabonggo.ph","buttons":[{"type":"web_url","url":"http://kuyabonggo.ph/press-release/Bong-Go-promotes-Marikina-made-footwear-vows-support-for-local-industries","title":"Read"}]},{"title":"Latest Pulse Asia Survey shows Bong Go in Top 3 of Senatorial Polls","image_url":"http://kuyabonggo.ph/uploads/0823b1d6ac4d628df25bba54f3ca6d69.jpg","subtitle":"kuyabonggo.ph","buttons":[{"type":"web_url","url":"http://kuyabonggo.ph/press-release/Latest-Pulse-Asia-Survey-shows-Bong-Go-in-Top-3-of-Senatorial-Polls","title":"Read"}]},{"title":"Bong Go visits Eastern Visayas, vows to push for programs to improve the quality of life in the region ","image_url":"http://kuyabonggo.ph/uploads/ff083a966ddda7631a850381a1fa26a1.jpg","subtitle":"kuyabonggo.ph","buttons":[{"type":"web_url","url":"http://kuyabonggo.ph/press-release/Bong-Go-visits-Eastern-Visayas-vows-to-push-for-programs-to-improve-the-quality-of-life-in-the-region-","title":"Read"}]},{"title":"Bong Go: performance in Service more important than performance in surveys","image_url":"http://kuyabonggo.ph/uploads/73a85702aaab98636342600971c6f879.jpg","subtitle":"kuyabonggo.ph","buttons":[{"type":"web_url","url":"http://kuyabonggo.ph/press-release/Bong-Go-performance-in-Service-more-important-than-performance-in-surveys","title":"Read"}]}]}}};
-
+  response = {
+    "text": "Where's the Pick Up?"
+  }
 
   callSendAPI(recipientId,response);
 
