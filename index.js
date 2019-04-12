@@ -102,11 +102,11 @@ function handleMessage(sender_psid, received_message) {
  
   // console.log("xx--"+received_message);
 
-  if(received_message.quick_reply.payload != "") {
+  // if(received_message.quick_reply.payload != "") {
     
-    getPickUpPoint(sender_psid);
+  //   getPickUpPoint(sender_psid);
   
-  }else {
+  // }else {
 
       response = {
         "text": "Hanap ka ng byahe boss?",
@@ -127,7 +127,7 @@ function handleMessage(sender_psid, received_message) {
   // Sends the response message
   callSendAPI(sender_psid, response); 
   
-  }
+  // }
 
 
 }
