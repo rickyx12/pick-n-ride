@@ -101,9 +101,9 @@ function handleMessage(sender_psid, received_message) {
   let response;
   let payload = received_message.quick_reply.payload;
 
-   console.log("--->"+received_message.quick_reply.payload);
+   console.log("--->"+payload);
 
-  if(payload == "Oo") {
+  if(payload == "PASSENGER_YES") {
     
     getPickUpPoint(sender_psid);
 
