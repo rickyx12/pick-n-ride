@@ -102,7 +102,7 @@ function handleMessage(sender_psid, received_message) {
 
    console.log("--->"+received_message.text);
 
-  if(received_message.quick_reply.payload != "") {
+  if(received_message.quick_reply.length > 0) {
     
     if(received_message.quick_reply.payload == "PASSENGER_YES") {
       getPickUpPoint(sender_psid);
