@@ -192,7 +192,7 @@ function startBooking(recipientId) {
       howToUseText2;
  
   howToUseText1 = {
-    "text":"We need to know the Pickup:\u000ADropoff:\u000AFare:\u000Ato find you a driver."
+    "text":"We need to know the\u000A\u000A Pickup:\u000ADropoff:\u000AFare:\u000A\u000Ato find you a driver."
   }
 
   howToUseText2 = {
