@@ -137,15 +137,9 @@ function handlePostback(sender_psid, received_postback) {
     
     sendGetStarted(sender_psid);
   
-  }else if(payload == 'PASSENGER_YES') {
-   
-    getPickUpPoint(sender_psid);
-  
-  }else if(payload == 'TOPICS') {
+  } else{
 
-    getTopics(sender_psid);
-
-  }else{
+    console.log('No payload');
 
   }
 
