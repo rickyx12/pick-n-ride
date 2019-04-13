@@ -114,6 +114,8 @@ function handleMessage(sender_psid, received_message) {
 
      pickUp = received_message.text;
 
+     console.log(received_message.payload);
+
       response = {
         "text": "PU: "+pickUp
       }
@@ -201,7 +203,8 @@ function startBooking(recipientId) {
   }
 
   getPU = {
-    "text":"First tell me your Pick Up:"
+    "text":"First tell me your Pick Up:",
+    "payload":"PICKUP"
   }
 
   callSendAPI(recipientId,howToUseText1).then(() => {
