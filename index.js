@@ -202,9 +202,7 @@ function sendGetStarted(recipientId) {
 
   callSendAPI(recipientId,response1).then(() => {
     return callSendAPI(recipientId,response2).then(() => {
-      return callAttachmentSendAPI(recipientId,howToUse).then(() => {
-        return callSendAPI(recipientId,response3);
-      });
+      return callAttachmentSendAPI(recipientId,howToUse).then(json => console.log(json));
     });
   });
 }
