@@ -122,7 +122,9 @@ function handleMessage(sender_psid, received_message) {
       }
 
     // Sends the response message
-    callSendAPI(sender_psid, response); 
+    callSendAPI(sender_psid, response).then((json) => {
+      console.log("fiere");
+    }); 
   
   }
 
@@ -193,8 +195,7 @@ function startBooking(recipientId) {
   let howToUseText1,
       howToUseText2,
       howToUseImage,
-      getPU,
-      getDO;
+      getPU;
  
   howToUseText1 = {
     "text":"We need to know the  Pickup:\u000A Dropoff:\u000A Fare:\u000A to find you a driver."
@@ -208,16 +209,9 @@ function startBooking(recipientId) {
     "text":"First tell me your Pick Up:"
   }
 
-  getDO = {
-    "text":"Second tell me your Drop Off:"
-  }
-
   callSendAPI(recipientId,howToUseText1).then(() => {
     return callSendAPI(recipientId,howToUseText2).then(() => {
-      return callSendAPI(recipientId,getPU).then((json) => {
-        console.log("json-->"+json);
-        // return callSendAPI(recipientId,getDO);
-      });
+      return callSendAPI(recipientId,getPU);
     })
   });
 
