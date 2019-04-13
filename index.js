@@ -178,7 +178,7 @@ function sendGetStarted(recipientId) {
         "attachment":{
           "type":"image",
           "payload":{
-            "url":"https://github.com/rickyx12/pick-n-ride/blob/master/assets/img/example-pick-n-ride.PNG",
+            "url":"https://ibb.co/CnLKWWv",
             "is_reusable":true
           }
         }
