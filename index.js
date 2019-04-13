@@ -209,7 +209,7 @@ function startBooking(recipientId) {
   }
 
   howToUseText2 = {
-    "text":"like this one :) \u000A Pickup: Tomas morato starbucks \u000A Dropoff: Inoza Tower BGC \u000A Fare: 150"
+    "text":"like this one :) \u000A PICKUP:\u000ATomas morato starbucks\u000A Dropoff:\u000AInoza Tower BGC\u000AFare:\u000A150"
   }
 
   // howToUseImage = {
