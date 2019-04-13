@@ -101,19 +101,19 @@ function handleMessage(sender_psid, received_message) {
   let response,
       payload;
 
-  if(received_message.quick_reply.payload !== 'undefined') {
-    payload = received_message.quick_reply.payload;
-  }else {
-    payload = "";
-  }
+  // if(received_message.quick_reply.payload !== 'undefined') {
+  //   payload = received_message.quick_reply.payload;
+  // }else {
+  //   payload = "";
+  // }
 
-   console.log("--->"+received_message);
+  //  console.log("--->"+received_message);
 
-  if(payload == "PASSENGER_YES") {
+  // if(payload == "PASSENGER_YES") {
     
-    startBooking(sender_psid);
+  //   startBooking(sender_psid);
 
-  }else {
+  // }else {
 
       response = {
         "text": "Hanap ka ng byahe boss?",
@@ -134,7 +134,7 @@ function handleMessage(sender_psid, received_message) {
   // Sends the response message
   callSendAPI(sender_psid, response); 
   
-  }
+  // }
 
 
 }
