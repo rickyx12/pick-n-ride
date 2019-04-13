@@ -116,7 +116,7 @@ function handleMessage(sender_psid, received_message) {
      
 
       response = {
-        "text": "Second, tell me your Drop Off:"
+        "text": "sorry can't understand you =( "
       }
 
     // Sends the response message
@@ -189,26 +189,18 @@ function sendGetStarted(recipientId) {
 function startBooking(recipientId) {
 
   let howToUseText1,
-      howToUseText2,
-      howToUseImage,
-      getPU;
+      howToUseText2;
  
   howToUseText1 = {
-    "text":"We need to know the  Pickup:\u000A Dropoff:\u000A Fare:\u000A to find you a driver."
+    "text":"We need to know the Pickup:\u000ADropoff:\u000AFare:\u000Ato find you a driver."
   }
 
   howToUseText2 = {
-    "text":"like this one :) \u000A \u000A PICKUP:\u000ATomas morato starbucks\u000A \u000A DROPOFF:\u000AInoza Tower BGC\u000A \u000AFARE:\u000A150"
-  }
-
-  getPU = {
-    "text":"First, tell me your Pick Up:"
+    "text":"EXAMPLE FORMAT \u000A\u000ATomas morato starbucks\u000AInoza Tower BGC\u000A150"
   }
 
   callSendAPI(recipientId,howToUseText1).then(() => {
-    return callSendAPI(recipientId,howToUseText2).then(() => {
-      return callSendAPI(recipientId,getPU);
-    })
+    return callSendAPI(recipientId,howToUseText2);
   });
 
 }
