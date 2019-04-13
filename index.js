@@ -205,11 +205,11 @@ function startBooking(recipientId) {
       howToUseImage;
  
   howToUseText1 = {
-    "text":"We need to know the Pickup,\u000A Dropoff,\u000A, Fare\u000A to find you a driver."
+    "text":"We need to know the Pickup:\u000A Dropoff:\u000A Fare:\u000A to find you a driver."
   }
 
   howToUseText2 = {
-    "text":"like this one :)"
+    "text":"like this one :) \u000A Pickup: Tomas morato starbucks \u000A Dropoff: Inoza Tower BGC \u000A Fare: 150"
   }
 
   // howToUseImage = {
