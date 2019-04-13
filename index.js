@@ -99,7 +99,12 @@ function handleMessage(sender_psid, received_message) {
 
 
   let response;
-  let payload = received_message.quick_reply.payload;
+
+  if(received_message.quick_reply.payload !== 'undefined') {
+    let payload = received_message.quick_reply.payload;
+  }else {
+    let payload = "";
+  }
 
    console.log("--->"+received_message);
 
