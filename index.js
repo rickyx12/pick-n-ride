@@ -112,7 +112,7 @@ function handleMessage(sender_psid, received_message) {
 
   } else {
 
-     pickUp[sender_psid] = received_message.text;
+     pickUp = received_message.text;
 
       response = {
         "text": "PU: "+pickUp[sender_psid]
