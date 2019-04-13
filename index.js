@@ -112,6 +112,10 @@ function handleMessage(sender_psid, received_message) {
       console.log('no payload');
     }
 
+  }else if(received_message.text == "menu") {
+
+    startBooking(sender_psid);
+
   }else {
      
       if((received_message.text.includes('PU:')) || (received_message.text.includes('pu:')) && 
