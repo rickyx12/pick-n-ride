@@ -196,7 +196,7 @@ function startBooking(recipientId) {
   }
 
   howToUseText2 = {
-    "text":"EXAMPLE FORMAT \u000A\u000ATomas morato starbucks\u000AInoza Tower BGC\u000A150"
+    "text":"EXAMPLE FORMAT \u000A\u000APU:Tomas morato starbucks\u000ADO:Inoza Tower BGC\u000AF:150"
   }
 
   callSendAPI(recipientId,howToUseText1).then(() => {
