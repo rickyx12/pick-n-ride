@@ -101,7 +101,7 @@ function handleMessage(sender_psid, received_message) {
   let response,
       payload;
 
-  if(received_message.quick_reply !== 'undefined') {
+  if(received_message.quick_reply.payload !== 'undefined') {
     payload = received_message.quick_reply.payload;
   }else {
     payload = "";
