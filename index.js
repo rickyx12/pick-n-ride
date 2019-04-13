@@ -205,27 +205,25 @@ function startBooking(recipientId) {
       howToUseImage;
  
   howToUseText1 = {
-    "text":"We need to know the Pickup,\u000A Dropoff and fare to find you a driver."
+    "text":"We need to know the Pickup,\u000A Dropoff,\u000A, Fare\u000A to find you a driver."
   }
 
   howToUseText2 = {
     "text":"like this one :)"
   }
 
-  howToUseImage = {
-    "attachment":{
-      "type":"image",
-      "payload":{
-        "url":"http://pick-n-ride.000webhostapp.com/sampleFare.PNG",
-        "is_reusable":true
-      }
-    }
-  }
+  // howToUseImage = {
+  //   "attachment":{
+  //     "type":"image",
+  //     "payload":{
+  //       "url":"http://pick-n-ride.000webhostapp.com/sampleFare.PNG",
+  //       "is_reusable":true
+  //     }
+  //   }
+  // }
 
   callSendAPI(recipientId,howToUseText1).then(() => {
-    return callSendAPI(recipientId,howToUseText2).then(() => {
-      return callSendAPI(recipientId,howToUseImage);
-    });
+    return callSendAPI(recipientId,howToUseText2);
   });
 
 }
