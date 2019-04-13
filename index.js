@@ -115,6 +115,8 @@ function handleMessage(sender_psid, received_message) {
 
   // } else {
 
+     console.log("--->"+received_message);
+
       response = {
         "text": "Hanap ka ng byahe boss?",
         "quick_replies": [
