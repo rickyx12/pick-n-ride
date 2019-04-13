@@ -105,7 +105,7 @@ function handleMessage(sender_psid, received_message) {
 
   if(payload == "PASSENGER_YES") {
     
-    getPickUpPoint(sender_psid);
+    startBooking(sender_psid);
 
   }else {
 
@@ -163,7 +163,6 @@ function sendGetStarted(recipientId) {
 
     let response1,
         response2,
-        howToUse,
         response3;
 
       response1 = {
@@ -174,15 +173,6 @@ function sendGetStarted(recipientId) {
         "text":"We are Pick-N-Ride a transportation service for you. =) "
       }
 
-      howToUse = {
-        "attachment":{
-          "type":"image",
-          "payload":{
-            "url":"http://pick-n-ride.000webhostapp.com/example-pick-n-ride.png",
-            "is_reusable":true
-          }
-        }
-      }
 
       response3 = {
         "text": "Do you want us to find you a driver?",
@@ -202,23 +192,41 @@ function sendGetStarted(recipientId) {
 
   callSendAPI(recipientId,response1).then(() => {
     return callSendAPI(recipientId,response2).then(() => {
-      return callSendAPI(recipientId,howToUse).then(() => {
-        return callSendAPI(recipientId,response3)
-      });
+      return callSendAPI(recipientId,response3);
     });
   });
 }
 
 
-function getPickUpPoint(recipientId) {
+function startBooking(recipientId) {
 
-  let response;
-
-  response = {
-    "text": "Enter where to the Pick Up you?"
+  let howToUseText1,
+      howToUseText2,
+      howToUseImage;
+ 
+  howToUseText1 = {
+    "text":"We need to know the Pickup,Dropoff and fare to find you a driver."
   }
 
-  callSendAPI(recipientId,response);
+  howToUseText2 = {
+    "text":"like this one :)"
+  }
+
+  howToUseImage = {
+    "attachment":{
+      "type":"image",
+      "payload":{
+        "url":"http://pick-n-ride.000webhostapp.com/sampleFare.PNG",
+        "is_reusable":true
+      }
+    }
+  }
+
+  callSendAPI(recipientId,howToUseText1).then(() => {
+    return callSendAPI(recipientId,howToUseText2).then(() => {
+      return callSendAPI(recipientId,howToUseImage);
+    });
+  });
 
 }
 
