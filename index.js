@@ -98,24 +98,16 @@ app.get('/webhook', (req, res) => {
 function handleMessage(sender_psid, received_message) {
 
 
-  let response,
-      payload;
+  let response;
 
-  // if(received_message.quick_reply.payload !== 'undefined') {
-  //   payload = received_message.quick_reply.payload;
-  // }else {
-  //   payload = "";
-  // }
 
-  //  console.log("--->"+received_message);
-
-  // if(payload == "PASSENGER_YES") {
+  if(received_message.text == "Yes") {
     
-  //   startBooking(sender_psid);
+    startBooking(sender_psid);
 
-  // } else {
+  } else {
 
-     console.log("--->"+received_message);
+     console.log("--->"+received_message.text);
 
       response = {
         "text": "Hanap ka ng byahe boss?",
@@ -136,7 +128,7 @@ function handleMessage(sender_psid, received_message) {
     // Sends the response message
     callSendAPI(sender_psid, response); 
   
-  // }
+  }
 
 
 }
