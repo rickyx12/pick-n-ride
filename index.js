@@ -98,36 +98,24 @@ app.get('/webhook', (req, res) => {
 function handleMessage(sender_psid, received_message) {
 
 
-  let response;
+  let response
+      pickUp[sender_psid];
 
 
   if(received_message.quick_reply) {
     
     if(received_message.quick_reply.payload == 'PASSENGER_YES') {
       startBooking(sender_psid);
-      console.log("--->TESTing");
     }else {
       console.log('no payload');
     }
 
   } else {
 
-     console.log("--->"+received_message.text);
+     pickUp[sender_psid] = received_message.text;
 
       response = {
-        "text": "Hanap ka ng byahe boss?",
-        "quick_replies": [
-          {
-            "content_type":"text",
-            "title":"Oo",
-            "payload":"PASSENGER_YES"
-          },
-          {
-            "content_type":"text",
-            "title":"Hindi",
-            "payload":"PASSENGER_NO"
-          }
-        ]
+        "text": "PU: "+pickUp[sender_psid]
       }
 
     // Sends the response message
