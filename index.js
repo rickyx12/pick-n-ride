@@ -114,7 +114,7 @@ function handleMessage(sender_psid, received_message) {
 
   }else if(received_message.text == "menu") {
 
-    startBooking(sender_psid);
+    sendGetStarted(sender_psid);
 
   }else {
      
