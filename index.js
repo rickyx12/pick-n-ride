@@ -101,7 +101,7 @@ function handleMessage(sender_psid, received_message) {
   let response;
   let payload = received_message.quick_reply.payload;
 
-   console.log("--->"+payload);
+   console.log("--->"+received_message);
 
   if(payload == "PASSENGER_YES") {
     
