@@ -98,8 +98,8 @@ app.get('/webhook', (req, res) => {
 function handleMessage(sender_psid, received_message) {
 
 
-  let response,
-      pickUp[];
+  let response;
+  var pickUp[];
 
 
   if(received_message.quick_reply) {
