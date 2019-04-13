@@ -205,7 +205,7 @@ function startBooking(recipientId) {
       howToUseImage;
  
   howToUseText1 = {
-    "text":"We need to know the Pickup,Dropoff and fare to find you a driver."
+    "text":"We need to know the Pickup,\u000A Dropoff and fare to find you a driver."
   }
 
   howToUseText2 = {
