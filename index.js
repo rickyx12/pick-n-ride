@@ -178,7 +178,8 @@ function sendGetStarted(recipientId) {
         "attachment":{
           "type":"image",
           "payload":{
-            "attachment_id": "288726628685821"
+            "url":"http://pick-n-ride.000webhostapp.com/example-pick-n-ride.png",
+            "is_reusable":true
           }
         }
       }
