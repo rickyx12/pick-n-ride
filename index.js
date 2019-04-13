@@ -103,8 +103,11 @@ function handleMessage(sender_psid, received_message) {
 
   if(received_message.text == "Yes") {
     
-    startBooking(sender_psid);
-    console.log(received_message.quick_reply.payload);
+    if(received_message.quick_reply.payload == 'PASSENGER_YES') {
+      startBooking(sender_psid);
+    }else {
+      console.log('no payload');
+    }
 
   } else {
 
