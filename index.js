@@ -119,7 +119,7 @@ function handleMessage(sender_psid, received_message) {
         (received_message.text.includes('F:')) || (received_message.text.includes('f:')) ) {
          
         response = {
-          "text": received_message.text+"\u000A\u000ASearching driver for you 🔎...."
+          "text": received_message.text+"\u000A\u000ASearching driver for you 🔎🏍...."
         }
 
       }else {
