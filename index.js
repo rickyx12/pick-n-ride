@@ -99,7 +99,7 @@ function handleMessage(sender_psid, received_message) {
 
 
   let response;
-  var pickUp[];
+  var pickUp = [];
 
 
   if(received_message.quick_reply) {
