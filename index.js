@@ -178,8 +178,7 @@ function sendGetStarted(recipientId) {
         "attachment":{
           "type":"image",
           "payload":{
-            "url":"https://ibb.co/CnLKWWv",
-            "is_reusable":true
+            "attachment_id": "288726628685821"
           }
         }
       }
@@ -202,7 +201,9 @@ function sendGetStarted(recipientId) {
 
   callSendAPI(recipientId,response1).then(() => {
     return callSendAPI(recipientId,response2).then(() => {
-      return callAttachmentSendAPI(recipientId,howToUse).then(json => console.log(json));
+      return callSendAPI(recipientId,howToUse).then(() => {
+        return callSendAPI(recipientId,response3)
+      });
     });
   });
 }
