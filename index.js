@@ -114,10 +114,10 @@ function handleMessage(sender_psid, received_message) {
 
   }else {
      
-      if(received_message.text.includes('PU:')) {
+      if(received_message.text.includes('PU:') && received_message.text.includes('DO:') && received_message.text.includes('F:')) {
          
         response = {
-          "text": "PU EXIST"
+          "text": received_message.text+"\u000A Searching nearby driver for you...."
         }
 
       }else {
