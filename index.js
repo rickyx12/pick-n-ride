@@ -112,16 +112,24 @@ function handleMessage(sender_psid, received_message) {
       console.log('no payload');
     }
 
-  } else {
+  }else {
      
+      if(received_message.text.includes('PU')) {
+         
+        response = {
+          "text": "PU EXIST"
+        }
 
-      response = {
-        "text": "sorry can't understand you =( "
+      }else {
+        
+        response = {
+          "text": "sorry can't understand you =( "
+        }
+      
       }
 
-    // Sends the response message
-    callSendAPI(sender_psid, response); 
-  
+      // Sends the response message
+      callSendAPI(sender_psid, response); 
   }
 
 
@@ -192,7 +200,7 @@ function startBooking(recipientId) {
       howToUseText2;
  
   howToUseText1 = {
-    "text":"We need to know the\u000A\u000A Pickup:\u000ADropoff:\u000AFare:\u000A\u000Ato find you a driver."
+    "text":"We need to know the\u000A\u000APickup:\u000ADropoff:\u000AFare:\u000A\u000Ato find you a driver."
   }
 
   howToUseText2 = {
