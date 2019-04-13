@@ -98,7 +98,7 @@ app.get('/webhook', (req, res) => {
 function handleMessage(sender_psid, received_message) {
 
 
-  let response
+  let response,
       payload;
 
   if(received_message.quick_reply !== 'undefined') {
