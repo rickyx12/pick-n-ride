@@ -125,7 +125,7 @@ function handleMessage(sender_psid, received_message) {
       }else {
         
         response = {
-          "text": "sorry can't understand you =( "
+          "text": "Sorry, it seems you have an incorrect format.\u000APls check your format and try again =( "
         }
       
       }
