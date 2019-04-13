@@ -113,18 +113,14 @@ function handleMessage(sender_psid, received_message) {
     }
 
   } else {
-
-     pickUp[sender_psid] = received_message.text;
      
 
       response = {
-        "text": "PU: "+pickUp[sender_psid]
+        "text": "Second, tell me your Drop Off:"
       }
 
     // Sends the response message
-    callSendAPI(sender_psid, response).then((json) => {
-      console.log("fiere");
-    }); 
+    callSendAPI(sender_psid, response); 
   
   }
 
@@ -206,7 +202,7 @@ function startBooking(recipientId) {
   }
 
   getPU = {
-    "text":"First tell me your Pick Up:"
+    "text":"First, tell me your Pick Up:"
   }
 
   callSendAPI(recipientId,howToUseText1).then(() => {
