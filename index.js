@@ -202,8 +202,8 @@ function sendGetStarted(recipientId) {
 
   callSendAPI(recipientId,response1).then(() => {
     return callSendAPI(recipientId,response2).then(() => {
-      return callSendAPI(recipientId,howToUse).then(() => {
-        return callSendAPI(recipientId,howToUse);
+      return callAttachmentSendAPI(recipientId,howToUse).then(() => {
+        return callSendAPI(recipientId,response3);
       });
     });
   });
@@ -313,6 +313,28 @@ function callSendAPI(sender_psid, response) {
 
   const qs = 'access_token='+encodeURIComponent(accessToken);
   return fetch('https://graph.facebook.com/v2.6/me/messages?'+qs,{
+    method:'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify(request_body)
+  });
+
+}
+
+
+function callAttachmentSendAPI(sender_psid, response) {
+  
+  typing(sender_psid);
+
+  // Construct the message body
+  let request_body = {
+    "recipient": {
+      "id": sender_psid
+    },
+    "message": response
+  }
+
+  const qs = 'access_token='+encodeURIComponent(accessToken);
+  return fetch('https://graph.facebook.com/v2.6/me/message_attachments?'+qs,{
     method:'POST',
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify(request_body)
