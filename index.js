@@ -99,7 +99,7 @@ function handleMessage(sender_psid, received_message) {
 
 
   let response,
-      pickUp;
+      pickUp[];
 
 
   if(received_message.quick_reply) {
@@ -112,12 +112,12 @@ function handleMessage(sender_psid, received_message) {
 
   } else {
 
-     pickUp = received_message.text;
+     pickUp[sender_psid] = received_message.text;
 
      console.log(received_message.payload);
 
       response = {
-        "text": "PU: "+pickUp
+        "text": "PU: "+pickUp[sender_psid]
       }
 
     // Sends the response message
@@ -203,8 +203,7 @@ function startBooking(recipientId) {
   }
 
   getPU = {
-    "text":"First tell me your Pick Up:",
-    "payload":"PICKUP"
+    "text":"First tell me your Pick Up:"
   }
 
   callSendAPI(recipientId,howToUseText1).then(() => {
