@@ -114,7 +114,7 @@ function handleMessage(sender_psid, received_message) {
 
   }else {
      
-      if(received_message.text.includes('PU')) {
+      if(received_message.text.includes('PU:')) {
          
         response = {
           "text": "PU EXIST"
@@ -197,18 +197,25 @@ function sendGetStarted(recipientId) {
 function startBooking(recipientId) {
 
   let howToUseText1,
-      howToUseText2;
+      howToUseText2,
+      howToUseText3;
  
   howToUseText1 = {
     "text":"We need to know the\u000A\u000APickup:\u000ADropoff:\u000AFare:\u000A\u000Ato find you a driver."
   }
 
   howToUseText2 = {
-    "text":"EXAMPLE FORMAT \u000A\u000APU:Tomas morato starbucks\u000ADO:Inoza Tower BGC\u000AF:150"
+    "text":"FORMAT \u000A\u000APU<colon>Pickup location\u000ADO<colon>Dropoff location\u000AF<colon>fare amount"
+  }
+
+  howToUseText3 = {
+    "text":"EXAMPLE \u000A\u000APU:Tomas morato starbucks\u000ADO:Inoza Tower BGC\u000AF:150"
   }
 
   callSendAPI(recipientId,howToUseText1).then(() => {
-    return callSendAPI(recipientId,howToUseText2);
+    return callSendAPI(recipientId,howToUseText2).then(() => {
+      return callSendAPI(recipientId,howToUseText3);
+    });
   });
 
 }
