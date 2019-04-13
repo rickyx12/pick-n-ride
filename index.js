@@ -161,7 +161,10 @@ function handlePostback(sender_psid, received_postback) {
 
 function sendGetStarted(recipientId) {
 
-    let response1,response2,response3;
+    let response1,
+        response2,
+        howToUse,
+        response3;
 
       response1 = {
         "text":"Hello, How's your day? :)"
