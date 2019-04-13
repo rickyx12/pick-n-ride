@@ -209,7 +209,7 @@ function startBooking(recipientId) {
   }
 
   howToUseText2 = {
-    "text":"like this one :) \u000A PICKUP:\u000ATomas morato starbucks\u000A DROPOFF:\u000AInoza Tower BGC\u000AFARE:\u000A150"
+    "text":"like this one :) \u000A \u000A PICKUP:\u000ATomas morato starbucks\u000A \u000A DROPOFF:\u000AInoza Tower BGC\u000A \u000AFARE:\u000A150"
   }
 
   // howToUseImage = {
