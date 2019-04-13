@@ -164,7 +164,7 @@ function sendGetStarted(recipientId) {
     let response1,response2,response3;
 
       response1 = {
-        "text":"Boss kamusta? :D"
+        "text":"Hello, How's your day? :)"
       }
 
       response2 = {
@@ -172,16 +172,16 @@ function sendGetStarted(recipientId) {
       }
 
       response3 = {
-        "text": "Hanap ka ng byahe boss?",
+        "text": "Do you want to find us a driver for you?",
         "quick_replies": [
           {
             "content_type":"text",
-            "title":"Oo",
+            "title":"Yes",
             "payload":"PASSENGER_YES"
           },
           {
             "content_type":"text",
-            "title":"Hindi",
+            "title":"No",
             "payload":"PASSENGER_NO"
           }
         ]
@@ -200,7 +200,7 @@ function getPickUpPoint(recipientId) {
   let response;
 
   response = {
-    "text": "Where's the Pick Up?"
+    "text": "Enter where to the Pick Up you?"
   }
 
   callSendAPI(recipientId,response);
@@ -282,35 +282,6 @@ function typing(sender_psid) {
 
 }
 
-
-// // Sends response messages via the Send API
-// function callSendAPI(sender_psid, response) {
-  
-//   typing(sender_psid);
-
-//   // Construct the message body
-//   let request_body = {
-//     "recipient": {
-//       "id": sender_psid
-//     },
-//     "message": response
-//   }
-
-//   // Send the HTTP request to the Messenger Platform
-//   request({
-//     "uri": "https://graph.facebook.com/v2.6/me/messages",
-//     "qs": { "access_token": accessToken },
-//     "method": "POST",
-//     "json": request_body
-//   }, (err, res, body) => {
-//     if (!err) {
-//       console.log('message sent!')
-//     } else {
-//       console.error("Unable to send message:" + err);
-//     }
-//   }); 
-
-// }
 
 
 function callSendAPI(sender_psid, response) {
