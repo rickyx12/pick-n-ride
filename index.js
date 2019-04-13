@@ -99,7 +99,9 @@ function handleMessage(sender_psid, received_message) {
 
 
   let response,
-      pickUp = [];
+      details,
+      pickUp = [],
+      dropOff = [];
 
 
   if(received_message.quick_reply) {
@@ -113,8 +115,7 @@ function handleMessage(sender_psid, received_message) {
   } else {
 
      pickUp[sender_psid] = received_message.text;
-
-     console.log(received_message.payload);
+     
 
       response = {
         "text": "PU: "+pickUp[sender_psid]
@@ -192,10 +193,11 @@ function startBooking(recipientId) {
   let howToUseText1,
       howToUseText2,
       howToUseImage,
-      getPU;
+      getPU,
+      getDO;
  
   howToUseText1 = {
-    "text":"We need to know the Pickup:\u000A Dropoff:\u000A Fare:\u000A to find you a driver."
+    "text":"We need to know the  Pickup:\u000A Dropoff:\u000A Fare:\u000A to find you a driver."
   }
 
   howToUseText2 = {
@@ -206,9 +208,15 @@ function startBooking(recipientId) {
     "text":"First tell me your Pick Up:"
   }
 
+  getDO = {
+    "text":"Second tell me your Drop Off:"
+  }
+
   callSendAPI(recipientId,howToUseText1).then(() => {
     return callSendAPI(recipientId,howToUseText2).then(() => {
-      return callSendAPI(recipientId,getPU);
+      return callSendAPI(recipientId,getPU).then(() => {
+        return callSendAPI(recipientId,getDO);
+      });
     })
   });
 
