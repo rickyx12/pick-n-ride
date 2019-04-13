@@ -202,7 +202,8 @@ function startBooking(recipientId) {
 
   let howToUseText1,
       howToUseText2,
-      howToUseImage;
+      howToUseImage,
+      getPU;
  
   howToUseText1 = {
     "text":"We need to know the Pickup:\u000A Dropoff:\u000A Fare:\u000A to find you a driver."
@@ -212,18 +213,14 @@ function startBooking(recipientId) {
     "text":"like this one :) \u000A \u000A PICKUP:\u000ATomas morato starbucks\u000A \u000A DROPOFF:\u000AInoza Tower BGC\u000A \u000AFARE:\u000A150"
   }
 
-  // howToUseImage = {
-  //   "attachment":{
-  //     "type":"image",
-  //     "payload":{
-  //       "url":"http://pick-n-ride.000webhostapp.com/sampleFare.PNG",
-  //       "is_reusable":true
-  //     }
-  //   }
-  // }
+  getPU = {
+    "text":"First tell me your Pick Up:"
+  }
 
   callSendAPI(recipientId,howToUseText1).then(() => {
-    return callSendAPI(recipientId,howToUseText2);
+    return callSendAPI(recipientId,howToUseText2).then(() => {
+      return callSendAPI(recipientId,getPU);
+    })
   });
 
 }
