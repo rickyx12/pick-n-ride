@@ -171,8 +171,18 @@ function sendGetStarted(recipientId) {
         "text":"We are Pick-N-Ride a transportation service for you. =) "
       }
 
+      howToUse = {
+        "attachment":{
+          "type":"image",
+          "payload":{
+            "url":"https://github.com/rickyx12/pick-n-ride/blob/master/assets/img/example-pick-n-ride.PNG",
+            "is_reusable":true
+          }
+        }
+      }
+
       response3 = {
-        "text": "Do you want to find us a driver for you?",
+        "text": "Do you want us to find you a driver?",
         "quick_replies": [
           {
             "content_type":"text",
@@ -189,7 +199,9 @@ function sendGetStarted(recipientId) {
 
   callSendAPI(recipientId,response1).then(() => {
     return callSendAPI(recipientId,response2).then(() => {
-      return callSendAPI(recipientId,response3)
+      return callSendAPI(recipientId,howToUse).then(() => {
+          return callSendAPI(recipientId,response3);
+      });
     });
   });
 }
