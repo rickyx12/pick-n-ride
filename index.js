@@ -104,6 +104,7 @@ function handleMessage(sender_psid, received_message) {
   if(received_message.text == "Yes") {
     
     startBooking(sender_psid);
+    console.log(received_message.quick_replies.payload);
 
   } else {
 
