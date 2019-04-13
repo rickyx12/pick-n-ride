@@ -203,7 +203,7 @@ function sendGetStarted(recipientId) {
   callSendAPI(recipientId,response1).then(() => {
     return callSendAPI(recipientId,response2).then(() => {
       return callSendAPI(recipientId,howToUse).then(() => {
-          return callSendAPI(recipientId,response3);
+        return callSendAPI(recipientId,howToUse);
       });
     });
   });
