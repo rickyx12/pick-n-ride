@@ -324,23 +324,3 @@ function callSendAPI(sender_psid, response) {
 }
 
 
-function callAttachmentSendAPI(sender_psid, response) {
-  
-  typing(sender_psid);
-
-  // Construct the message body
-  let request_body = {
-    "recipient": {
-      "id": sender_psid
-    },
-    "message": response
-  }
-
-  const qs = 'access_token='+encodeURIComponent(accessToken);
-  return fetch('https://graph.facebook.com/v2.6/me/message_attachments?'+qs,{
-    method:'POST',
-    headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify(request_body)
-  });
-
-}
