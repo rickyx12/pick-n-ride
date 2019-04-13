@@ -101,10 +101,11 @@ function handleMessage(sender_psid, received_message) {
   let response;
 
 
-  if(received_message.text == "Yes") {
+  if(received_message.quick_reply) {
     
     if(received_message.quick_reply.payload == 'PASSENGER_YES') {
       startBooking(sender_psid);
+      console.log("--->TESTing");
     }else {
       console.log('no payload');
     }
