@@ -214,8 +214,9 @@ function startBooking(recipientId) {
 
   callSendAPI(recipientId,howToUseText1).then(() => {
     return callSendAPI(recipientId,howToUseText2).then(() => {
-      return callSendAPI(recipientId,getPU).then(() => {
-        return callSendAPI(recipientId,getDO);
+      return callSendAPI(recipientId,getPU).then((json) => {
+        console.log("json-->"+json);
+        // return callSendAPI(recipientId,getDO);
       });
     })
   });
