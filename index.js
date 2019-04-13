@@ -114,10 +114,12 @@ function handleMessage(sender_psid, received_message) {
 
   }else {
      
-      if(received_message.text.includes('PU:') && received_message.text.includes('DO:') && received_message.text.includes('F:')) {
+      if(received_message.text.includes('PU:') && 
+        received_message.text.includes('DO:') && 
+        received_message.text.includes('F:')) {
          
         response = {
-          "text": received_message.text+"\u000A\u000A\u000A Searching nearby driver for you 🔎...."
+          "text": received_message.text+"\u000A\u000ASearching driver for you 🔎...."
         }
 
       }else {
