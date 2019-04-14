@@ -108,6 +108,8 @@ function handleMessage(sender_psid, received_message) {
     
     if(received_message.quick_reply.payload == 'PASSENGER_YES') {
       startBooking(sender_psid);
+    }else if(received_message.quick_reply.payload == 'GET_STARTED_PAYLOAD') {
+      sendGetStarted(sender_psid);
     }else {
       noBooking(sender_psid);
     }
@@ -231,12 +233,12 @@ function startBooking(recipientId) {
    let response;
 
    response = {
-    "text": "Okay then, anyway if you change your mind just tap the\u000A\"Start Booking\" 👇",
+    "text": "Okay then, anyway if you change your mind just tap the this 👇",
     "quick_replies":[
       {
         "content_type":"text",
         "title":"Start Booking",
-        "payload":"PASSENGER_YES"
+        "payload":"GET_STARTED_PAYLOAD"
       }
     ]
    }
