@@ -165,10 +165,20 @@ function handlePostback(sender_psid, received_postback) {
 
 function sendGetStarted(recipientId) {
 
-    let response1,
+    let typingOn,
+        typingOff,
+        response1,
         response2,
         response3;
 
+      typingOn = {
+        "sender_action":"typing_on"
+      }
+
+      typingOff = {
+        "sender_action":"typing_off"
+      }
+ 
       response1 = {
         "text":"Hello, How's your day? :)"
       }
@@ -194,11 +204,17 @@ function sendGetStarted(recipientId) {
         ]
       }
 
-  callSendAPI(recipientId,response1).then(() => {
-    return callSendAPI(recipientId,response2).then(() => {
-      return callSendAPI(recipientId,response3);
-    });
+
+  callSendAPI(recipientId,typingOn).then(() => {
+    return callSendAPI(recipientId,response1).then(() => {
+        return callSendAPI(recipientId,response2).then(() => {
+          return callSendAPI(recipientId,response3).then(() => {
+            return callSendAPI(recipientId,typingOff)
+          });
+        });
+      });
   });
+
 }
 
 
