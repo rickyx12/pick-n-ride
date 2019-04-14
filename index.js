@@ -233,7 +233,7 @@ function startBooking(recipientId) {
    let response;
 
    response = {
-    "text": "Okay then, anyway if you change your mind just tap the this 👇",
+    "text": "Okay then, anyway if you change your mind just tap this 👇",
     "quick_replies":[
       {
         "content_type":"text",
