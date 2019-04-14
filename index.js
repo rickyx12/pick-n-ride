@@ -109,7 +109,7 @@ function handleMessage(sender_psid, received_message) {
     if(received_message.quick_reply.payload == 'PASSENGER_YES') {
       startBooking(sender_psid);
     }else {
-      console.log('no payload');
+      noBooking(sender_psid);
     }
 
   }else if(received_message.text == "menu") {
@@ -226,52 +226,15 @@ function startBooking(recipientId) {
 
 }
 
- function getTopStories(recipientId) {
+ function noBooking(recipientId) {
+   
+   let response;
 
-  // let response;
+   response = {
+    "text": "Okay then, anyway if you change your mind just tap the 'Start Booking' below"
+   }
 
-  // response = {"attachment":{"type":"template","payload":{"template_type":"generic","image_aspect_ratio":"horizontal","elements":[{"title":"Duterte: Run after judge's killers","image_url":"https://mindanaodailymirror.ph/assets/img/news/0a8a89e87206420c95d2a0508455f2df.jpg","subtitle":"President Rodrigo Duterte has ordered the Philippine National Police (PNP) to run after the killers of Ozamiz City Executive Judge Edmundo Pintac and bring them to justice at the soonest possible time.","buttons":[{"type":"web_url","url":"http://localhost/mdm/press-release/","title":"Read"}]},{"title":"Sara calls ACT-Davao \u2018liars\u2019 and \u2018terrorists\u2019","image_url":"https://mindanaodailymirror.ph/assets/img/news/0a8a89e87206420c95d2a0508455f2df.jpg","subtitle":"A word war has erupted between Mayor Sara Duterte and the Alliance of Concerned Teachers (ACT)-Davao City Chapter after the mayor reacted negatively to an Instagram post by ACT-Davao that alleged Davao is the only big city in the Philippines that does not give allowances to teachers.","buttons":[{"type":"web_url","url":"http://localhost/mdm/press-release/","title":"Read"}]},{"title":"SWS survey shows 84% believe PH democracy works","image_url":"https://mindanaodailymirror.ph/assets/img/news/0a8a89e87206420c95d2a0508455f2df.jpg","subtitle":"According to the 2018 SWS third quarter survey held from September 15-23, 2018, the number has increased from 78 percent in March 2018 and nearly tied the record-high 86 percent registered in September 2016.","buttons":[{"type":"web_url","url":"http://localhost/mdm/press-release/","title":"Read"}]}]}}}
-
-   request({
-    // "uri":"https://jsonblob.com/api/e3435125-55d7-11e9-bd46-a1e9950e4543",
-    "uri":dataUrl+"/Bot/getTopStories",
-    "method":"GET"
-   },(err,res,body) => {
-      
-      console.log(body);
-      callSendAPI(recipientId,body);
-
-   });
-
-   // callSendAPI(recipientId,response);
-
- }
-
- function getTopics(recipientId) {
-
-
-  request({
-    "uri":"https://mindanaodailymirror.ph/index.php/Bot/showCategories",
-    "method":"GET"
-  },(err,res,body) => {
-
-    callSendAPI(recipientId,body);
-
-  });
-
- }
-
- function getNewsByTopics(recipientId,topics) {
-
-  request({
-    "uri": "https://jsonblob.com/api/ace99841-5690-11e9-af37-390da9f9cb42",
-    "qs": { "topics":topics },
-    "method": "GET"
-  },(err,res,body) => {
-
-    callSendAPI(recipientId,body);
-
-  });
+   callSendAPI(recipientId,response);
 
  }
 
