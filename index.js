@@ -137,8 +137,10 @@ function handleMessage(sender_psid, received_message) {
       }
 
       // Sends the response message
-      callSendAPI(sender_psid, response); 
-      typing(sender_psid);
+      callSendAPI(sender_psid, response).then(() => {
+        typing(sender_psid);
+      }); 
+      
   }
 
 
