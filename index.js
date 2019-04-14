@@ -231,7 +231,14 @@ function startBooking(recipientId) {
    let response;
 
    response = {
-    "text": "Okay then, anyway if you change your mind just tap the 'Start Booking' below"
+    "text": "Okay then, anyway if you change your mind just tap the\u000A\"Start Booking\" 👇",
+    "quick_replies":[
+      {
+        "content_type":"text",
+        "title":"Start Booking",
+        "payload":"PASSENGER_YES"
+      }
+    ]
    }
 
    callSendAPI(recipientId,response);
