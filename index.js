@@ -207,10 +207,10 @@ function sendGetStarted(recipientId) {
 
 
 
-    var docRef = db.collection('pnr-api').doc('alovelace');
+    var docRef = db.collection('pnr-api').doc('Driver'+recipientId);
 
     var setAda = docRef.set({
-      first: 'Ada',
+      fb_id: recipientId,
       last: 'Lovelace',
       born: 1815
     });
