@@ -15,7 +15,7 @@ const admin = require('firebase-admin');
 var serviceAccount = require('assets/pnr-api-d8a87f8bb318.json');
 
 admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount)
+  credential: admin.credential.applicationDefault()
 });
 
 var db = admin.firestore();
