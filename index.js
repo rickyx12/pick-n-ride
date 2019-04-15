@@ -10,6 +10,11 @@ const
   accessToken = "EAADuLIY8BksBALxFZA9SuJ5vshC6UB1mBmbwnjie1fkf4sXXeVfmiUZAuJoZAbM5NYmyo6PMByeuUibI7vK5TAib5uGC2hzj4BfbXZAFEUlwNSZA5TcbzcnNCWTkVEqkuZAx26MkirY85dext2casBL0s4x5R9Mj9ttxpsQe1IxwZDZD",
   app = express().use(bodyParser.json()); // creates express http server
 
+const admin = require('firebase-admin'),
+      functions = require('firebase-functions');
+
+admin.initializeApp(functions.config().firebase);
+var db = admin.firestore();
 
 
 
@@ -196,6 +201,17 @@ function sendGetStarted(recipientId) {
           }
         ]
       }
+
+
+
+    var docRef = db.collection('users').doc('alovelace');
+
+    var setAda = docRef.set({
+      first: 'Ada',
+      last: 'Lovelace',
+      born: 1815
+    });
+
 
 
     callSendAPI(recipientId,response1).then(() => {
