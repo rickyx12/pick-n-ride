@@ -205,7 +205,7 @@ function sendGetStarted(recipientId) {
 
 
 
-    var docRef = db.collection('users').doc('alovelace');
+    var docRef = db.collection('pnr-api').doc('alovelace');
 
     var setAda = docRef.set({
       first: 'Ada',
