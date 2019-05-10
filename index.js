@@ -207,14 +207,14 @@ function sendGetStarted(recipientId) {
 
 
 
-    var datetime = new Date();
-    var docRef = db.collection('pnr-api').doc('Driver'+recipientId);
+    // var datetime = new Date();
+    // var docRef = db.collection('pnr-api').doc('Driver'+recipientId);
 
-    var setAda = docRef.set({
-      fb_id: recipientId,
-      last: 'Lovelace',
-      details: datetime.toISOString().slice(0,10)
-    });
+    // var setAda = docRef.set({
+    //   fb_id: recipientId,
+    //   last: 'Lovelace',
+    //   details: datetime.toISOString().slice(0,10)
+    // });
 
 
 
