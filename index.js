@@ -10,15 +10,15 @@ const
   accessToken = "EAADuLIY8BksBALxFZA9SuJ5vshC6UB1mBmbwnjie1fkf4sXXeVfmiUZAuJoZAbM5NYmyo6PMByeuUibI7vK5TAib5uGC2hzj4BfbXZAFEUlwNSZA5TcbzcnNCWTkVEqkuZAx26MkirY85dext2casBL0s4x5R9Mj9ttxpsQe1IxwZDZD",
   app = express().use(bodyParser.json()); // creates express http server
 
-const admin = require('firebase-admin');
+// const admin = require('firebase-admin');
 
-var serviceAccount = require('./assets/pnr-api-d8a87f8bb318.json');
+// var serviceAccount = require('./assets/pnr-api-d8a87f8bb318.json');
 
-admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount)
-});
+// admin.initializeApp({
+//   credential: admin.credential.cert(serviceAccount)
+// });
 
-var db = admin.firestore();
+// var db = admin.firestore();
 
 
 // Sets server port and logs message on success
